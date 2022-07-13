@@ -52,6 +52,7 @@ class ContentHeader extends StatelessWidget {
                   print("My List");
                 },
               ),
+              _PlayButton(),
               VerticalIconButton(
                 icon: Icons.info_outline,
                 title: "Infos",
@@ -63,6 +64,31 @@ class ContentHeader extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class _PlayButton extends StatelessWidget {
+  const _PlayButton({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return FlatButton.icon(
+      onPressed: () {
+        print("Play");
+      },
+      icon: const Icon(
+        Icons.play_arrow,
+        size: 30,
+      ),
+      color: Colors.white,
+      label: const Text(
+        "Play",
+        style: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
     );
   }
 }
