@@ -19,6 +19,16 @@ class ContentHeader extends StatelessWidget {
             ),
           ),
         ),
+        Container(
+          height: 500,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.black, Colors.transparent],
+              begin: Alignment.bottomLeft,
+              end: Alignment.topCenter,
+            ),
+          ),
+        ),
       ],
     );
   }
