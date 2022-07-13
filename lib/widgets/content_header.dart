@@ -9,6 +9,7 @@ class ContentHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      alignment: Alignment.center,
       children: [
         Container(
           height: 500,
@@ -28,6 +29,11 @@ class ContentHeader extends StatelessWidget {
               end: Alignment.topCenter,
             ),
           ),
+        ),
+        Positioned(
+          bottom: 100,
+          width: 250,
+          child: Image.asset(featuredContent.titleImageUrl),
         ),
       ],
     );
