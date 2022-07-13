@@ -21,9 +21,40 @@ class Previews extends StatelessWidget {
           child: Text(
             title,
             style: TextStyle(
-                color: Colors.red, fontSize: 20, fontWeight: FontWeight.bold),
+                color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
           ),
-        )
+        ),
+        Container(
+          height: 165,
+          child: ListView.builder(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+              scrollDirection: Axis.horizontal,
+              itemCount: contentList.length,
+              itemBuilder: (BuildContext context, int index) {
+                final Content content = contentList[index];
+                return GestureDetector(
+                  onTap: () {
+                    print(content.name);
+                  },
+                  child: Stack(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 16),
+                        height: 130,
+                        width: 130,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                              content.imageUrl,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                );
+              }),
+        ),
       ],
     );
   }
