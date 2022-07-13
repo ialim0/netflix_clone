@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_netflix_responsive_ui/models/models.dart';
+import 'package:flutter_netflix_responsive_ui/widgets/widgets.dart';
 
 class ContentHeader extends StatelessWidget {
   final Content featuredContent;
@@ -32,8 +33,34 @@ class ContentHeader extends StatelessWidget {
         ),
         Positioned(
           bottom: 100,
-          width: 250,
-          child: Image.asset(featuredContent.titleImageUrl),
+          child: SizedBox(
+            width: 250,
+            child: Image.asset(featuredContent.titleImageUrl),
+          ),
+        ),
+        Positioned(
+          left: 0,
+          right: 0,
+          bottom: 40,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              VerticalIconButton(
+                icon: Icons.add,
+                title: "List",
+                onTap: () {
+                  print("My List");
+                },
+              ),
+              VerticalIconButton(
+                icon: Icons.info_outline,
+                title: "Infos",
+                onTap: () {
+                  print("My List");
+                },
+              ),
+            ],
+          ),
         ),
       ],
     );
