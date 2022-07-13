@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_netflix_responsive_ui/data/data.dart';
 
 import 'package:flutter_netflix_responsive_ui/widgets/custom_app_bar.dart';
+import 'package:flutter_netflix_responsive_ui/widgets/previews.dart';
 
 import '../widgets/content_header.dart';
 
@@ -57,6 +58,15 @@ class _HomeScreenState extends State<HomeScreen> {
         slivers: [
           SliverToBoxAdapter(
             child: ContentHeader(featuredContent: sintelContent),
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.only(top: 20),
+            sliver: SliverToBoxAdapter(
+              child: Previews(
+                title: 'Previews',
+                contentList: previews,
+              ),
+            ),
           )
         ],
       ),
