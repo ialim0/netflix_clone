@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_netflix_responsive_ui/assets.dart';
+import 'package:flutter_netflix_responsive_ui/widgets/widgets.dart';
 
 class CustomAppBar extends StatelessWidget {
   final double scrollOffset;
@@ -13,40 +14,145 @@ class CustomAppBar extends StatelessWidget {
       color: Colors.black.withOpacity(
         (scrollOffset / 80).clamp(0, 1).toDouble(),
       ),
-      child: SafeArea(
-        child: Row(
-          children: [
-            Image.asset(Assets.netflixLogo0),
-            const SizedBox(
-              width: 12,
+      child: Responsive(
+        mobile: _CustomAppBarMobile(),
+        desktop: _CustomAppBarDesktop(),
+      ),
+    );
+  }
+}
+
+class _CustomAppBarMobile extends StatelessWidget {
+  const _CustomAppBarMobile({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Row(
+        children: [
+          Image.asset(Assets.netflixLogo0),
+          const SizedBox(
+            width: 12,
+          ),
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                _AppBarButton(
+                  title: "TV Shows",
+                  onTap: () {
+                    print("TV Shows");
+                  },
+                ),
+                _AppBarButton(
+                  title: "Movies",
+                  onTap: () {
+                    print("Movies");
+                  },
+                ),
+                _AppBarButton(
+                  title: "My List",
+                  onTap: () {
+                    print("My List");
+                  },
+                ),
+              ],
             ),
-            Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  _AppBarButton(
-                    title: "TV Shows",
-                    onTap: () {
-                      print("TV Shows");
-                    },
-                  ),
-                  _AppBarButton(
-                    title: "Movies",
-                    onTap: () {
-                      print("Movies");
-                    },
-                  ),
-                  _AppBarButton(
-                    title: "My List",
-                    onTap: () {
-                      print("My List");
-                    },
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class _CustomAppBarDesktop extends StatelessWidget {
+  const _CustomAppBarDesktop({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Row(
+        children: [
+          Image.asset(Assets.netflixLogo1),
+          const SizedBox(
+            width: 12,
+          ),
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                _AppBarButton(
+                  title: "Home",
+                  onTap: () {
+                    print("Home");
+                  },
+                ),
+                _AppBarButton(
+                  title: "TV Shows",
+                  onTap: () {
+                    print("TV Shows");
+                  },
+                ),
+                _AppBarButton(
+                  title: "Movies",
+                  onTap: () {
+                    print("Movies");
+                  },
+                ),
+                _AppBarButton(
+                  title: "Lastest",
+                  onTap: () {
+                    print("Lastest");
+                  },
+                ),
+                _AppBarButton(
+                  title: "My List",
+                  onTap: () {
+                    print("My List");
+                  },
+                ),
+              ],
+            ),
+          ),
+          Spacer(),
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                _AppBarButton(
+                  title: "Home",
+                  onTap: () {
+                    print("Home");
+                  },
+                ),
+                _AppBarButton(
+                  title: "TV Shows",
+                  onTap: () {
+                    print("TV Shows");
+                  },
+                ),
+                _AppBarButton(
+                  title: "Movies",
+                  onTap: () {
+                    print("Movies");
+                  },
+                ),
+                _AppBarButton(
+                  title: "Lastest",
+                  onTap: () {
+                    print("Lastest");
+                  },
+                ),
+                _AppBarButton(
+                  title: "My List",
+                  onTap: () {
+                    print("My List");
+                  },
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
