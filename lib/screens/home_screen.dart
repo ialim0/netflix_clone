@@ -64,18 +64,21 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.only(top: 20),
             sliver: SliverToBoxAdapter(
               child: Previews(
+                key: PageStorageKey("Previews"),
                 title: 'Previews',
                 contentList: previews,
               ),
             ),
           ),
           SliverToBoxAdapter(
+            key: PageStorageKey("My List"),
             child: ContentList(
               title: "My List",
               contentList: myList,
             ),
           ),
           SliverToBoxAdapter(
+            key: PageStorageKey("Netflix Originals"),
             child: ContentList(
               title: "Netflix Originals",
               contentList: originals,
@@ -83,6 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           SliverPadding(
+            key: PageStorageKey("Trending"),
             padding: const EdgeInsets.only(bottom: 20.0),
             sliver: SliverToBoxAdapter(
               // ignore: missing_required_param

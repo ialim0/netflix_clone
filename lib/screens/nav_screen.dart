@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_netflix_responsive_ui/screens/screens.dart';
+import 'package:flutter_netflix_responsive_ui/widgets/widgets.dart';
 
 class NavScreen extends StatefulWidget {
   const NavScreen({Key key}) : super(key: key);
@@ -29,27 +30,29 @@ class _NavScreenState extends State<NavScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: _screens[_currentIndex],
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.black,
-          items: _icons
-              .map(
-                (title, icon) => MapEntry(
-                  title,
-                  BottomNavigationBarItem(
-                    icon: Icon(icon, size: 30),
-                    label: title,
-                  ),
-                ),
+        bottomNavigationBar: !Responsive.isDesktop(context)
+            ? BottomNavigationBar(
+                type: BottomNavigationBarType.fixed,
+                backgroundColor: Colors.black,
+                items: _icons
+                    .map(
+                      (title, icon) => MapEntry(
+                        title,
+                        BottomNavigationBarItem(
+                          icon: Icon(icon, size: 30),
+                          label: title,
+                        ),
+                      ),
+                    )
+                    .values
+                    .toList(),
+                currentIndex: _currentIndex,
+                selectedItemColor: Colors.white,
+                selectedFontSize: 11,
+                unselectedItemColor: Colors.grey,
+                unselectedFontSize: 11,
+                onTap: (index) => setState(() => _currentIndex = index),
               )
-              .values
-              .toList(),
-          currentIndex: _currentIndex,
-          selectedItemColor: Colors.white,
-          selectedFontSize: 11,
-          unselectedItemColor: Colors.grey,
-          unselectedFontSize: 11,
-          onTap: (index) => setState(() => _currentIndex = index),
-        ));
+            : null);
   }
 }
