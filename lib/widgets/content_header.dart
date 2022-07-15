@@ -125,16 +125,20 @@ class _ContentHeaderDesktopState extends State<_ContentHeaderDesktop> {
       child: Stack(
         alignment: Alignment.bottomLeft,
         children: [
-          AspectRatio(
-            aspectRatio: _videoController.value.isInitialized
-                ? _videoController.value.aspectRatio
-                : 2.344,
-            child: _videoController.value.isInitialized
-                ? VideoPlayer(_videoController)
-                : Image.asset(
-                    widget.featuredContent.imageUrl,
-                    fit: BoxFit.cover,
-                  ),
+          Positioned(
+            bottom: -1,
+            left: 0,
+            child: AspectRatio(
+              aspectRatio: _videoController.value.isInitialized
+                  ? _videoController.value.aspectRatio
+                  : 2.344,
+              child: _videoController.value.isInitialized
+                  ? VideoPlayer(_videoController)
+                  : Image.asset(
+                      widget.featuredContent.imageUrl,
+                      fit: BoxFit.cover,
+                    ),
+            ),
           ),
           Container(
             height: 500,
